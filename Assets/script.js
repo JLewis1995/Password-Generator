@@ -18,10 +18,10 @@ function writePassword() {
   // if (pwLength == "a") return alert("Must be a number between 8 and 128.");
 
   // recieve further inputs/criteria for password
-  var includeUpper = confirm("Do you want UpperCase Letters in your Password?");
-  var includeLower = confirm("Do you want LowerCase Letters in your Password?");
-  var includeNumbers = confirm("Do you want Numbers in your Password?");
-  var includeSymbols = confirm("Do you want Symbols in your Password?");
+  var includeUpper = confirm("Do you want uppercase letters in your password?");
+  var includeLower = confirm("Do you want lowercase letters in your password?");
+  var includeNumbers = confirm("Do you want numbers in your password?");
+  var includeSymbols = confirm("Do you want symbols in your password?");
 
   // function to generate password based on user inputs above
   function generatePassword(length, chars) {
