@@ -9,4 +9,10 @@ Upon clicking the button "Generate Password" the webage will prompt the user to 
 
 The function will then run and an alert will first display the output so that it can be copied if the user should wish.
 After pressing OK or Cancel to the output alert - the webpage will display the output in the box for manual coping should the user wish.
-The function can run time and time again. 
+The function can run time and time again.
+
+https://jlewis1995.github.io/Password-Generator/
+
+![alt text](./assets/OnLoad.png)
+![alt text](./assets/AlertOutput.png)
+![alt text](./assets/FinalOutput.png)
