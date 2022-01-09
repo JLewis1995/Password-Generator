@@ -13,6 +13,6 @@ The function can run time and time again.
 
 https://jlewis1995.github.io/Password-Generator/
 
-!(./assets/OnLoad.png)
+![alt text](./assets/OnLoad.png)
 ![alt text](./assets/AlertOutput.png)
 ![alt text](./assets/FinalOutput.png)
