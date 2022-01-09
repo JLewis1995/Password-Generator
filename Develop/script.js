@@ -1,6 +1,4 @@
-// Current issue - output is undefined but appears to be generating a PW on top of undefined.
-
-// Assignment Code
+// Assigning variables
 var generateBtn = document.querySelector("#generate");
 var lettersUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lettersLower = "abcdefghigjklmopqrstuvwxyz";
@@ -8,20 +6,24 @@ var numbers = "0123456789";
 var symbols = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 var characters = "";
 
-// Write password to the #password input
+// Write password function to recieve inputs, operate generatePassword function & display output
 function writePassword() {
   var password = "";
   var passwordText = document.querySelector("#password");
+  // Recieve length input from user via prompt
   var pwLength = prompt("How long would you like the password to be? (Must be between 8 and 128 characters)");
+  // rejections if crieteria not within bounds
   if (pwLength <= 7) return alert("Must be a number between 8 and 128");
   if (pwLength >=129) return alert("Must be a number between 8 and 128.");
-  if (pwLength == "a") return alert("Must be a number between 8 and 128.");
+  // if (pwLength == "a") return alert("Must be a number between 8 and 128.");
 
+  // recieve further inputs/criteria for password
   var includeUpper = confirm("Do you want UpperCase Letters in your Password?");
   var includeLower = confirm("Do you want LowerCase Letters in your Password?");
   var includeNumbers = confirm("Do you want Numbers in your Password?");
   var includeSymbols = confirm("Do you want Symbols in your Password?");
 
+  // function to generate password based on user inputs above
   function generatePassword(length, chars) {
     includeLower === true ? (chars += lettersLower) : "";
     includeUpper === true ? (chars += lettersUpper) : "";
@@ -35,8 +37,10 @@ function writePassword() {
     return password;
   }
 
+  // after prompts, run generatePassword function to do just that based on inputs
   generatePassword(pwLength, characters);
 
+  // outputs
   passwordText.value = password;
   console.log(password);
   alert(password);
