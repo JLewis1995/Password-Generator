@@ -24,21 +24,18 @@ function writePassword() {
   var includeNumbers = confirm("Do you want numbers in your password?");
   var includeSymbols = confirm("Do you want symbols in your password?");
 
-
+  // function to generate the password
   function generatePassword(length, chars) {
-    // Creating base password to include one of each peramiter set by user
-    includeLower === true ? (base += lettersLower.charAt(Math.floor(Math.random() * lettersLower.length))) : "";
-    includeUpper === true ? (base += lettersUpper.charAt(Math.floor(Math.random() * lettersUpper.length))) : "";
-    includeNumbers === true ? (base += numbers.charAt(Math.floor(Math.random() * numbers.length))) : "";
-    includeSymbols === true ? (base += symbols.charAt(Math.floor(Math.random() * symbols.length))) : "";
-    // Creating list of allowed characters based on paramiters
-    includeLower === true ? (chars += lettersLower) : "";
-    includeUpper === true ? (chars += lettersUpper) : "";
-    includeNumbers === true ? (chars += numbers) : "";
-    includeSymbols === true ? (chars += symbols) : "";
-    // Creating for loop to randomize password. if i is less than the requested length (less base) continue the loop, increasing by one each time. 
-    // picks number between 0 and length of allowed characters and adds it to password until it is of sufficient length.
-    for (let i = 4; i < length; i++) {
+
+    // Creating base password to include one of each peramiter set by user(base) & Creating list of allowed characters based on paramiters set by user (char)
+    includeLower === true ? ((base += lettersLower.charAt(Math.floor(Math.random() * lettersLower.length))), (chars += lettersLower)) : "";
+    includeUpper === true ? (base += lettersUpper.charAt(Math.floor(Math.random() * lettersUpper.length)), (chars += lettersUpper)) : "";
+    includeNumbers === true ? (base += numbers.charAt(Math.floor(Math.random() * numbers.length)), (chars += numbers)) : "";
+    includeSymbols === true ? (base += symbols.charAt(Math.floor(Math.random() * symbols.length)), (chars += symbols)) : "";
+
+    // Creating for loop to randomize password. if i is less than the requested length (less base length to ensure sufficient length) continue the loop, increasing by one each time. 
+    // Picks number between 0 and length of allowed characters and adds it to password until it is of sufficient length.
+    for (let i = base.length; i < length; i++) {
       password += chars.charAt(
         Math.floor(Math.random() * chars.length)
       );
