@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 var lettersUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lettersLower = "abcdefghigjklmopqrstuvwxyz";
 var numbers = "0123456789";
-var symbols = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~";
+var symbols = " !#$%()*+,-./:;<=>?'@[&]^_`{|}~";
 var characters = "";
 
 // Write password function to recieve inputs, operate generatePassword function & display output
@@ -11,11 +11,11 @@ function writePassword() {
   var password = "";
   var passwordText = document.querySelector("#password");
   // Recieve length input from user via prompt
-  var pwLength = prompt("How long would you like the password to be? (Must be between 8 and 128 characters)");
+  var userInput = prompt("How long would you like the password to be? (Must be between 8 and 128 characters)");
+  var pwLength = parseInt(userInput);
+
   // rejections if crieteria not within bounds
-  if (pwLength <= 7) return alert("Must be a number between 8 and 128");
-  if (pwLength >=129) return alert("Must be a number between 8 and 128.");
-  // if (pwLength == "a") return alert("Must be a number between 8 and 128.");
+  if (pwLength <= 7 || pwLength >=129) return alert("Must be a number between 8 and 128");
 
   // recieve further inputs/criteria for password
   var includeUpper = confirm("Do you want uppercase letters in your password?");
