@@ -9,6 +9,7 @@ var characters = "";
 // Write password function to recieve inputs, operate generatePassword function & display output
 function writePassword() {
   var password = "";
+  var base = "";
   var passwordText = document.querySelector("#password");
   // Recieve length input from user via prompt
   var userInput = prompt("How long would you like the password to be? (Must be between 8 and 128 characters)");
@@ -23,13 +24,21 @@ function writePassword() {
   var includeNumbers = confirm("Do you want numbers in your password?");
   var includeSymbols = confirm("Do you want symbols in your password?");
 
-  // function to generate password based on user inputs above
+
   function generatePassword(length, chars) {
+    // Creating base password to include one of each peramiter set by user
+    includeLower === true ? (base += lettersLower.charAt(Math.floor(Math.random() * lettersLower.length))) : "";
+    includeUpper === true ? (base += lettersUpper.charAt(Math.floor(Math.random() * lettersUpper.length))) : "";
+    includeNumbers === true ? (base += numbers.charAt(Math.floor(Math.random() * numbers.length))) : "";
+    includeSymbols === true ? (base += symbols.charAt(Math.floor(Math.random() * symbols.length))) : "";
+    // Creating list of allowed characters based on paramiters
     includeLower === true ? (chars += lettersLower) : "";
     includeUpper === true ? (chars += lettersUpper) : "";
     includeNumbers === true ? (chars += numbers) : "";
     includeSymbols === true ? (chars += symbols) : "";
-    for (let i = 0; i < length; i++) {
+    // Creating for loop to randomize password. if i is less than the requested length (less base) continue the loop, increasing by one each time. 
+    // picks number between 0 and length of allowed characters and adds it to password until it is of sufficient length.
+    for (let i = 4; i < length; i++) {
       password += chars.charAt(
         Math.floor(Math.random() * chars.length)
       );
@@ -41,9 +50,9 @@ function writePassword() {
   generatePassword(pwLength, characters);
 
   // outputs
-  passwordText.value = password;
-  console.log(password);
-  alert(password);
+  passwordText.value = (password + base);
+  console.log(password + base);
+  alert(password + base);
 }
 
 // Add event listener to generate button
